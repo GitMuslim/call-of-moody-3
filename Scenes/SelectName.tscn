@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Audio/main_menu.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Fonts/ARIAL.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/SelectName.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = SubResource( 2 )
+
+[node name="SelectName" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="Title" type="Label" parent="Control"]
+anchor_right = 1.0
+margin_bottom = 360.0
+custom_fonts/font = SubResource( 1 )
+text = "Choose your name"
+align = 1
+valign = 1
+
+[node name="main_menu" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="NameEnter" type="LineEdit" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -356.0
+margin_top = -40.0
+margin_right = 356.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="yes" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = 104.0
+margin_right = 120.0
+margin_bottom = 144.0
+disabled = true
+text = "Yes"
+
+[connection signal="pressed" from="Control/yes" to="." method="_on_Button_pressed"]

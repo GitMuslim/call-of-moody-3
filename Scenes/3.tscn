@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/boom.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/freddy.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/3.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/jerry.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://Fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 8 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "jerry_pos"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Jerry:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 240, 448 ), Vector2( 1016, 448 ) ]
+}
+
+[node name="Jerry" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 640, 356 )
+scale = Vector2( 2.37037, 1.82 )
+texture = ExtResource( 2 )
+
+[node name="saying" type="Label" parent="."]
+margin_top = 104.0
+margin_right = 1280.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 6 )
+text = "Please don't shoot."
+align = 1
+valign = 1
+
+[node name="cd" type="Label" parent="."]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 225.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 9 )
+text = "Countdown: 20"
+
+[node name="Jerry" type="Sprite" parent="."]
+position = Vector2( 616, 352 )
+texture = ExtResource( 4 )
+
+[node name="change_text" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="jerry_pos" type="AnimationPlayer" parent="."]
+anims/jerry_pos = SubResource( 7 )
+
+[node name="Boom" type="Sprite" parent="."]
+visible = false
+position = Vector2( 640, 560 )
+texture = ExtResource( 1 )
+
+[node name="countdown" type="Timer" parent="."]
+
+[node name="next_level" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="change_text" to="." method="_on_change_text_timeout"]
+[connection signal="timeout" from="countdown" to="." method="_on_countdown_timeout"]
+[connection signal="timeout" from="next_level" to="." method="_on_next_level_timeout"]

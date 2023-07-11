@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/uzi2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/crosshair.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/uzi1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/basketballbg.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 124, 148 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[node name="uzi" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Basketballbg" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+scale = Vector2( 1.33333, 1 )
+texture = ExtResource( 5 )
+
+[node name="UziArea" type="Area2D" parent="."]
+position = Vector2( 640, 340 )
+collision_mask = 2
+
+[node name="Uzi" type="AnimatedSprite" parent="UziArea"]
+frames = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UziArea"]
+shape = SubResource( 2 )
+
+[node name="saying" type="Label" parent="."]
+margin_left = 358.0
+margin_top = 128.0
+margin_right = 924.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 6 )
+text = "I am a Grand Mufti Uzi. Try to beat me.."
+
+[node name="UziHealth" type="Label" parent="."]
+margin_left = 8.0
+margin_right = 210.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 4 )
+text = "Uzi Health: 10"
+valign = 1
+
+[node name="Crosshair" type="Sprite" parent="."]
+position = Vector2( -200, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[connection signal="mouse_entered" from="UziArea" to="." method="_on_UziArea_mouse_entered"]
+[connection signal="mouse_exited" from="UziArea" to="." method="_on_UziArea_mouse_exited"]
