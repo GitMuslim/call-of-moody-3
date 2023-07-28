@@ -14,6 +14,10 @@ config/name="Call of Moody 3"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Scenes/globals.gd"
+
 [display]
 
 window/size/width=1280
@@ -25,6 +29,11 @@ common/drop_mouse_on_gui_input_disabled=true
 
 [input]
 
+ui_select={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 fullscreen={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777254,"physical_scancode":0,"unicode":0,"echo":false,"script":null)

@@ -5,9 +5,6 @@ var enemy_attackable = false
 var hp = 20
 var countdown = 30
 
-func _ready():
-	pass
-
 func _process(delta):
 	if (countdown <= 0):
 		get_tree().change_scene("res://Scenes/gameover.tscn")

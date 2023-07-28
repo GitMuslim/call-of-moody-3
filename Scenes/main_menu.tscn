@@ -3,12 +3,7 @@
 [ext_resource path="res://Scenes/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/ARIAL.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Audio/main_menu.mp3" type="AudioStream" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-size = 48
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
+[ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -26,7 +21,7 @@ margin_bottom = 720.0
 [node name="Title" type="Label" parent="Control"]
 anchor_right = 1.0
 margin_bottom = 360.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "Call of Moody 3
 the end"
 align = 1

@@ -1,6 +1,7 @@
 extends Node2D
 
 func _on_background_changer_timeout():
+	randomize()
 	var BG1 = rand_range(1, 255)
 	randomize()
 	var BG2 = rand_range(1, 255)
