@@ -5,7 +5,7 @@ var cur_text = -1
 
 func _on_change_text_timeout():
 	if (cur_text == 1):
-		get_tree().change_scene("res://Scenes/LevelSelector.tscn")
+		get_tree().change_scene("res://Scenes/v5.tscn")
 	if (cur_text < 1):
 		cur_text += 1
 		$saying.text = text_array[cur_text]
