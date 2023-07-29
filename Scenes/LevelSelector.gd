@@ -1,18 +1,51 @@
 extends Node2D
 
-func _ready():
+var s1 = false
+var s2 = false
+var s3 = false
+var s4 = false
+var s5 = false
+
+func _process(delta):
 	$Control/coins.text = "Coins: "+str(Globals.all_coins)
+	if Globals.all_coins >= 75:
+		s1 = true
+	if Globals.all_coins >= 125:
+		s2 = true
+	if Globals.all_coins >= 175:
+		s3 = true
+	if Globals.all_coins >= 225:
+		s4 = true
+	if Globals.all_coins >= 275:
+		s5 = true
+	if s1:
+		get_node("Control/1/s").text = "Unlocked"
+	if s2:
+		get_node("Control/2/s").text = "Unlocked"
+	if s3:
+		get_node("Control/3/s").text = "Unlocked"
+	if s4:
+		get_node("Control/4/s").text = "Unlocked"
+	if s5:
+		get_node("Control/5/s").text = "Unlocked"
 	pass
 
 func _on_1_pressed():
-	Globals.add_coins = 0
-	get_tree().change_scene("res://Scenes/com2_1_b.tscn")
+	if s1:
+		Globals.add_coins = 0
+		get_tree().change_scene("res://Scenes/com2_1_b.tscn")
 	pass
 
 func _on_2_pressed():
+	if s2:
+		Globals.add_coins = 0
+		get_tree().change_scene("res://Scenes/com2_2_b.tscn")
 	pass
 
 func _on_3_pressed():
+	if s3:
+		Globals.add_coins = 0
+		get_tree().change_scene("res://Scenes/com2_3_b.tscn")
 	pass
 
 func _on_4_pressed():
