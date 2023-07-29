@@ -54,6 +54,17 @@ custom_fonts/font = ExtResource( 1 )
 text = "Coins: 0"
 valign = 1
 
+[node name="coins2" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -266.5
+margin_right = 266.5
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+text = "Final Goal: get 350 coins"
+align = 1
+valign = 1
+
 [node name="levels" type="Label" parent="Control"]
 margin_left = -8.0
 margin_top = 225.0
@@ -90,7 +101,7 @@ margin_right = 88.5
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 5 )
 text = "(Locked)
-150 Coins"
+75 Coins"
 align = 1
 valign = 1
 
@@ -121,7 +132,7 @@ margin_right = 88.5
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 5 )
 text = "(Locked)
-350 Coins"
+125 Coins"
 align = 1
 valign = 1
 
@@ -152,7 +163,7 @@ margin_right = 88.5
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 5 )
 text = "(Locked)
-550 Coins"
+175 Coins"
 align = 1
 valign = 1
 
@@ -183,7 +194,7 @@ margin_right = 88.5
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 5 )
 text = "(Locked)
-750 Coins"
+225 Coins"
 align = 1
 valign = 1
 
@@ -214,9 +225,25 @@ margin_right = 88.5
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 5 )
 text = "(Locked)
-950 Coins"
+275 Coins"
 align = 1
 valign = 1
+
+[node name="m2d" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -324.0
+margin_top = -64.0
+margin_right = 332.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "Special M2D Level"
 
 [node name="sus" type="Button" parent="Control"]
 anchor_left = 0.5
@@ -243,4 +270,5 @@ autoplay = true
 [connection signal="pressed" from="Control/3" to="." method="_on_3_pressed"]
 [connection signal="pressed" from="Control/4" to="." method="_on_4_pressed"]
 [connection signal="pressed" from="Control/5" to="." method="_on_5_pressed"]
+[connection signal="pressed" from="Control/m2d" to="." method="_on_m2d_pressed"]
 [connection signal="pressed" from="Control/sus" to="." method="_on_sus_pressed"]

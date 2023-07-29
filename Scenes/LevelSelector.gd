@@ -8,6 +8,17 @@ var s5 = false
 
 func _process(delta):
 	$Control/coins.text = "Coins: "+str(Globals.all_coins)
+	if Globals.all_coins >= 350:
+		get_node("Control/1").hide()
+		get_node("Control/2").hide()
+		get_node("Control/3").hide()
+		get_node("Control/4").hide()
+		get_node("Control/5").hide()
+		get_node("Control/sus").hide()
+		get_node("Control/m2d").show()
+		get_node("Control/coins2").hide()
+	else:
+		get_node("Control/m2d").hide()
 	if Globals.all_coins >= 75:
 		s1 = true
 	if Globals.all_coins >= 125:
@@ -49,12 +60,23 @@ func _on_3_pressed():
 	pass
 
 func _on_4_pressed():
+	if s4:
+		Globals.add_coins = 0
+		get_tree().change_scene("res://Scenes/com2_4_b.tscn")
 	pass
 
 func _on_5_pressed():
+	if s5:
+		Globals.add_coins = 0
+		get_tree().change_scene("res://Scenes/com2_5_b.tscn")
 	pass
 
 func _on_sus_pressed():
 	Globals.add_coins = 0
 	get_tree().change_scene("res://Scenes/sus.tscn")
+	pass
+
+
+func _on_m2d_pressed():
+	get_tree().change_scene("res://Scenes/com2_m2d_b.tscn")
 	pass

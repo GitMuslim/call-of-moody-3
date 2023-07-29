@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/lost_com2_sus.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/m2d.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/koopa.png" type="Texture" id=3]
 [ext_resource path="res://Audio/boom-sound-effect.mp3" type="AudioStream" id=4]
-[ext_resource path="res://Sprites/switchno.jpg" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
@@ -28,18 +27,13 @@ corner_radius_top_right = 64
 corner_radius_bottom_right = 64
 corner_radius_bottom_left = 64
 
-[node name="lost_com2_3" type="Node2D"]
+[node name="lost_com2_4" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Defeat" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
-scale = Vector2( 9.01408, 5.07042 )
+scale = Vector2( 4, 2.25 )
 texture = ExtResource( 3 )
-
-[node name="Switchno" type="Sprite" parent="."]
-position = Vector2( 656, 184 )
-scale = Vector2( 0.246667, 0.436047 )
-texture = ExtResource( 5 )
 
 [node name="boom" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )

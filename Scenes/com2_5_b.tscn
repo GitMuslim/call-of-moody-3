@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/com2_1_b.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/com2_5_b.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Audio/level_ost.mp3" type="AudioStream" id=3]
 
@@ -35,7 +35,7 @@ corner_radius_top_right = 64
 corner_radius_bottom_right = 64
 corner_radius_bottom_left = 64
 
-[node name="com2_1_b" type="Node2D"]
+[node name="com2_5_b" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Control" type="Control" parent="."]
@@ -52,8 +52,8 @@ margin_top = 104.0
 margin_right = 1280.0
 margin_bottom = 228.0
 custom_fonts/font = SubResource( 6 )
-text = "M2D is trying to collect enough money to fund his new nintendo addiction
-\"that switch pro ain't gonna pay for itself\""
+text = "Wali Al Seeb sent no message in ages for some reason
+\"real\" - com3"
 align = 1
 valign = 1
 autowrap = true
