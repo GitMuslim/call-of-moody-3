@@ -8,7 +8,7 @@
 font_path = "res://Fonts/ARIAL.TTF"
 
 [sub_resource type="DynamicFont" id=6]
-size = 64
+size = 60
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 5 )
@@ -48,12 +48,14 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="saying" type="Label" parent="Control"]
-margin_top = 104.0
+margin_top = 24.0
 margin_right = 1280.0
-margin_bottom = 228.0
+margin_bottom = 401.0
 custom_fonts/font = SubResource( 6 )
 text = "M2D wants another special level, but you must gather more parts to build up the level
-\"no parts no level\" - logic"
+\"no parts no level\" - logic
+
+\"Make another special M2D level or ban\" - M2D"
 align = 1
 valign = 1
 autowrap = true

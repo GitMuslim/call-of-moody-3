@@ -464,12 +464,12 @@ visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -231.0
-margin_top = -200.0
+margin_top = -300.0
 margin_right = 25.0
-margin_bottom = -128.0
+margin_bottom = -228.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 2 )
-text = "Bismillah"
+text = "What's that"
 align = 1
 valign = 1
 
@@ -483,8 +483,8 @@ __meta__ = {
 }
 
 [node name="No" type="Sprite" parent="."]
-position = Vector2( 4184, 336 )
-scale = Vector2( 1, 0.729554 )
+position = Vector2( 4188, 336 )
+scale = Vector2( 2.064, 0.729554 )
 texture = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
