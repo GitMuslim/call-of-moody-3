@@ -24,7 +24,7 @@ func _process(delta):
 	$Camera2D.position.y = $plr.position.y
 	$plr.position.y += 5
 	if $plr.position.y > 33664:
-		Globals.portal_l = 2
+		Globals.portal_l = 4
 		get_tree().change_scene("res://Scenes/com3_1.tscn")
 	pass
 

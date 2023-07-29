@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/com3_lv1.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/m2d.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/com3_lv3.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/arklemen.png" type="Texture" id=2]
 [ext_resource path="res://Audio/mario_sunshine.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -29,7 +29,7 @@ position = Vector2( 640, 88 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="plr" type="Sprite" parent="plr"]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -46,6 +46,7 @@ position = Vector2( 640, 360 )
 current = true
 
 [node name="summon" type="Timer" parent="."]
+wait_time = 0.57
 autostart = true
 
 [node name="ost" type="AudioStreamPlayer" parent="."]
