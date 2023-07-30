@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/ARIAL.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/m2d.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/mc.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/moody.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/credits.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "oh wow I'm free", "anyways roll the credits", "Credits: mustafakhalaf" ]
+}
+
+[node name="Credits" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Mc" type="Sprite" parent="."]
+position = Vector2( 640, 360.5 )
+scale = Vector2( 1.33333, 1.02422 )
+texture = ExtResource( 3 )
+
+[node name="Moody" type="Sprite" parent="."]
+position = Vector2( 608, 440 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="m2d" type="Sprite" parent="."]
+position = Vector2( 680, 560 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="saying" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 8.0
+margin_top = 152.0
+margin_right = 1280.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+text = "oh wow I'm free"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="saying"]
+autoplay = "anim"
+anims/anim = SubResource( 2 )

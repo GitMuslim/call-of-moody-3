@@ -26,14 +26,15 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_select"):
-		dont_add = false
-		add_lim = 0
+	if stop == false:
+		if Input.is_action_just_pressed("ui_select"):
+			dont_add = false
+			add_lim = 0
 
 func _on_Timer_timeout():
-	stop = true
 	$m2d.position.y = 300
-	$m2d/m2d/saying/AnimationPlayer.play("saying")
+	$m2d/m2d/AnimationPlayer.play("saying")
+	stop = true
 	pass
 
 

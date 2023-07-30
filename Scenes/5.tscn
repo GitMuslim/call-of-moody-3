@@ -29,7 +29,7 @@ align = 1
 valign = 1
 
 [node name="change_text" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.5
 autostart = true
 
 [connection signal="timeout" from="change_text" to="." method="_on_change_text_timeout"]

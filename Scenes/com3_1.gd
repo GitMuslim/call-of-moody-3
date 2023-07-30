@@ -1,7 +1,10 @@
 extends Node2D
 
 func _ready():
-	Globals.game_stage = 3
+	if Globals.portal_l < 4:
+		Globals.game_stage = 3
+	elif Globals.portal_l > 3:
+		Globals.game_stage = 4
 	Globals._save_stuff()
 	pass
 
@@ -46,5 +49,5 @@ func _process(delta):
 		$Control/P2.hide()
 		$Control/P3.hide()
 		if Input.is_action_just_pressed("ui_accept"):
-			print("sus")
+			get_tree().change_scene("res://Scenes/boss.tscn")
 	pass

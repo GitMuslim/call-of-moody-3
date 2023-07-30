@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/ARIAL.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Audio/main_menu.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -27,6 +33,23 @@ text = "Call of Moody 3: The End
 align = 1
 valign = 1
 
+[node name="tips" type="Label" parent="Control"]
+anchor_right = 1.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 3 )
+text = "F11 to fullscreen"
+align = 1
+valign = 1
+
+[node name="time" type="Label" parent="Control"]
+anchor_right = 1.0
+margin_left = 960.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+
 [node name="Play" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -39,6 +62,18 @@ margin_bottom = -192.0
 custom_fonts/font = SubResource( 2 )
 text = "Play"
 
+[node name="reset" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 448.0
+margin_top = -520.0
+margin_right = 640.0
+margin_bottom = -486.0
+custom_fonts/font = SubResource( 2 )
+text = "Reset"
+
 [node name="main_menu" type="AudioStreamPlayer2D" parent="Control"]
 stream = ExtResource( 3 )
 autoplay = true
@@ -48,4 +83,5 @@ wait_time = 0.5
 autostart = true
 
 [connection signal="pressed" from="Control/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Control/reset" to="." method="_on_reset_pressed"]
 [connection signal="timeout" from="background_chang_er" to="." method="_on_background_changer_timeout"]

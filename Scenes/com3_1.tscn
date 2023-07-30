@@ -126,7 +126,7 @@ margin_left = -251.0
 margin_right = 251.0
 margin_bottom = 55.0
 custom_fonts/font = ExtResource( 4 )
-text = "Keys: Arrows and Enter"
+text = "Keys: Arrows and Enter/Z"
 align = 1
 valign = 1
 

@@ -5,12 +5,17 @@
 [ext_resource path="res://Sprites/right.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/right_p.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/touch_controls.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/space_p.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/space.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/f.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/enter_p.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/enter.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/f_p.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/ARIAL.TTF" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
 
 [node name="touch_controls" type="Node2D"]
 script = ExtResource( 5 )
@@ -35,13 +40,24 @@ normal = ExtResource( 3 )
 pressed = ExtResource( 4 )
 passby_press = true
 
-[node name="space" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="up" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
-position = Vector2( 248, 472 )
-scale = Vector2( 0.4589, 0.474187 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 6 )
+position = Vector2( 280, 240 )
+rotation = 1.5708
+scale = Vector2( 0.493333, 0.503817 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+passby_press = true
+
+[node name="down" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 280, 448 )
+rotation = 1.5708
+scale = Vector2( 0.506667, 0.503817 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
 passby_press = true
 
 [node name="enter" type="TouchScreenButton" parent="CanvasLayer"]
@@ -49,6 +65,15 @@ visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 1112, 0 )
 scale = Vector2( 0.240688, 0.245 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 9 )
+passby_press = true
+
+[node name="z" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 976, 384 )
+scale = Vector2( 0.401146, 0.413582 )
 normal = ExtResource( 10 )
 pressed = ExtResource( 9 )
 passby_press = true
@@ -62,13 +87,27 @@ normal = ExtResource( 8 )
 pressed = ExtResource( 11 )
 passby_press = true
 
+[node name="time" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+margin_left = 960.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+
 [connection signal="pressed" from="CanvasLayer/left" to="." method="_on_left_pressed"]
 [connection signal="released" from="CanvasLayer/left" to="." method="_on_left_released"]
 [connection signal="pressed" from="CanvasLayer/right" to="." method="_on_right_pressed"]
 [connection signal="released" from="CanvasLayer/right" to="." method="_on_right_released"]
-[connection signal="pressed" from="CanvasLayer/space" to="." method="_on_space_pressed"]
-[connection signal="released" from="CanvasLayer/space" to="." method="_on_space_released"]
+[connection signal="pressed" from="CanvasLayer/up" to="." method="_on_up_pressed"]
+[connection signal="released" from="CanvasLayer/up" to="." method="_on_up_released"]
+[connection signal="pressed" from="CanvasLayer/down" to="." method="_on_down_pressed"]
+[connection signal="released" from="CanvasLayer/down" to="." method="_on_down_released"]
 [connection signal="pressed" from="CanvasLayer/enter" to="." method="_on_enter_pressed"]
 [connection signal="released" from="CanvasLayer/enter" to="." method="_on_enter_released"]
+[connection signal="pressed" from="CanvasLayer/z" to="." method="_on_enter_pressed"]
+[connection signal="released" from="CanvasLayer/z" to="." method="_on_enter_released"]
 [connection signal="pressed" from="CanvasLayer/f" to="." method="_on_f_pressed"]
 [connection signal="released" from="CanvasLayer/f" to="." method="_on_f_released"]

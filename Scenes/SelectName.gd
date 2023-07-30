@@ -13,5 +13,6 @@ func _process(delta):
 	
 
 func _on_Button_pressed():
+	TouchControls.timer_on = true
 	get_tree().change_scene("res://Scenes/1.tscn")
 	pass

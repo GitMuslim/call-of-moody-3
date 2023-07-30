@@ -1,6 +1,10 @@
 extends Node2D
 
+var time = 0
+
 func _ready():
+	if OS.get_name() == "Android":
+		$Control/tips.hide()
 	randomize()
 	var BG1 = rand_range(1, 255)
 	randomize()
@@ -28,4 +32,18 @@ func _on_Play_pressed():
 		get_tree().change_scene("res://Scenes/LevelSelector.tscn")
 	elif Globals.game_stage == 3:
 		get_tree().change_scene("res://Scenes/com3_1.tscn")
+	elif Globals.game_stage == 4:
+		get_tree().change_scene("res://Scenes/com3_1.tscn")
+	elif Globals.game_stage == 5:
+		get_tree().change_scene("res://Scenes/credits.tscn")
+	pass
+
+
+func _on_reset_pressed():
+	Globals.all_coins = 0
+	Globals.add_coins = 0
+	Globals.game_stage = 1
+	Globals.portal_l = 1
+	Globals.selection = 1
+	Globals._save_stuff()
 	pass

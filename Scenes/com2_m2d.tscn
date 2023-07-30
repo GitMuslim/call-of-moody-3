@@ -7,12 +7,6 @@
 [ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Fonts/ARIAL.TTF" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=2]
-size = 64
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
-
 [sub_resource type="Animation" id=3]
 resource_name = "saying"
 length = 16.0
@@ -35,26 +29,33 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 11 ),
+"times": PoolRealArray( 0, 11 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../..:position")
+tracks/2/path = NodePath("../m2d:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 11, 12.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 11, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3782, 300 ), Vector2( 4182, 300 ) ]
+"values": [ Vector2( 3782, 300 ), Vector2( 3782, 300 ), Vector2( 4182, 300 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 36 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
 
 [node name="com2_m2d" type="Node2D"]
 script = ExtResource( 4 )
@@ -459,21 +460,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="saying" type="Label" parent="m2d/m2d"]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -231.0
-margin_top = -300.0
-margin_right = 25.0
-margin_bottom = -228.0
-rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 2 )
-text = "What's that"
-align = 1
-valign = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="m2d/m2d/saying"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="m2d/m2d"]
+root_node = NodePath("../../../saying")
 anims/saying = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="m2d"]
@@ -486,6 +474,19 @@ __meta__ = {
 position = Vector2( 4188, 336 )
 scale = Vector2( 2.064, 0.729554 )
 texture = ExtResource( 3 )
+
+[node name="saying" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 3464.0
+margin_top = 220.0
+margin_right = 4240.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 4 )
+text = "I have no option but to go in"
+align = 1
+valign = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, 360 )
@@ -500,4 +501,4 @@ text = "Coins: 0"
 valign = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="animation_finished" from="m2d/m2d/saying/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="m2d/m2d/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
