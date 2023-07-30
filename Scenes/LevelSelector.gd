@@ -8,7 +8,7 @@ var s5 = false
 
 func _process(delta):
 	$Control/coins.text = "Coins: "+str(Globals.all_coins)
-	if Globals.all_coins >= 350:
+	if Globals.all_coins >= 310:
 		get_node("Control/1").hide()
 		get_node("Control/2").hide()
 		get_node("Control/3").hide()

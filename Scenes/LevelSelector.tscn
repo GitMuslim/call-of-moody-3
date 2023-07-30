@@ -60,8 +60,9 @@ anchor_right = 0.5
 margin_left = -266.5
 margin_right = 266.5
 margin_bottom = 64.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "Final Goal: get 350 coins"
+text = "Final Goal: get 310 coins"
 align = 1
 valign = 1
 

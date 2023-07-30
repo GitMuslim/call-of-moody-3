@@ -13,18 +13,19 @@ func _process(delta):
 	if (hp <= 0):
 		get_tree().change_scene("res://Scenes/v2.tscn")
 
-func _input(event):
-	if Input.is_action_just_pressed("attack"):
-		if (enemy_attackable == true):
-			$AwwArea/Aww.play("hurt")
-			$saying.hide()
-			hp -= 0.25
-			randomize()
-			var x = rand_range(100, 1200)
-			randomize()
-			var y = rand_range(100, 600)
-			$AwwArea.position.x = x
-			$AwwArea.position.y = y
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if (enemy_attackable == true):
+				$AwwArea/Aww.play("hurt")
+				$saying.hide()
+				hp -= 0.25
+				randomize()
+				var x = rand_range(100, 1200)
+				randomize()
+				var y = rand_range(100, 600)
+				$AwwArea.position.x = x
+				$AwwArea.position.y = y
 
 func _on_AwwArea_mouse_entered():
 	enemy_attackable = true

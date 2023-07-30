@@ -14,12 +14,13 @@ func _process(delta):
 	if (hp <= 0):
 		get_tree().change_scene("res://Scenes/v4.tscn")
 
-func _input(event):
-	if Input.is_action_just_pressed("attack"):
-		if (zone_enter == true):
-			if (enemy_attackable == true):
-				$saying.hide()
-				hp -= 0.5723
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if (zone_enter == true):
+				if (enemy_attackable == true):
+					$saying.hide()
+					hp -= 0.5723
 
 func _on_BuuArea_mouse_entered():
 	enemy_attackable = true

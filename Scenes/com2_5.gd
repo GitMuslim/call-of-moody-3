@@ -3,26 +3,35 @@ extends Node2D
 var dont_add = true
 var add_lim = 0
 
-var stop = false
+var summon_y = 0
+var summon_y_c = 0
+var sd_p = preload("res://Scenes/d6.tscn")
+var sd_c = preload("res://Scenes/c6.tscn")
 
 func _process(delta):
 	$Camera2D/coins.text = "Coins: "+str(Globals.add_coins)
-	if $m2d.position.y < 88:
-		$m2d.position.y = 500
-	if $m2d.position.y > 633:
-		$m2d.position.y = 300
+	if $wali.position.y < 88:
+		get_tree().change_scene("res://Scenes/lost_com2_5.tscn")
+	if $wali.position.y > 633:
+		get_tree().change_scene("res://Scenes/lost_com2_5.tscn")
+	if $wali.position.x > 15840:
+		get_tree().change_scene("res://Scenes/com2_5.tscn")
+	$Camera2D.position.x = $wali.position.x
+	$ct_ost.position.x = $Camera2D.position.x
 	VisualServer.set_default_clear_color(Color8(135, 206, 235,1.0))
-	if stop == false:
-		$Camera2D.position.x = $m2d.position.x
-		$m2d.position.x += 5
-		$m2d.position.y += 5
+	randomize()
+	summon_y = rand_range(128, 576)
+	randomize()
+	summon_y_c = rand_range(128, 576)
+	$wali.position.x += 5
+	$wali.position.y += 5
 	if dont_add == false:
 		if add_lim > 49:
 			dont_add = true
 			add_lim = 0
 		else:
 			add_lim += 1
-			$m2d.position.y -= 8
+			$wali.position.y -= 8
 	pass
 
 func _input(event):
@@ -30,14 +39,13 @@ func _input(event):
 		dont_add = false
 		add_lim = 0
 
-func _on_Timer_timeout():
-	stop = true
-	$m2d.position.y = 300
-	$m2d/m2d/saying/AnimationPlayer.play("saying")
-	pass
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "saying":
-		get_tree().change_scene("res://Scenes/com3_1.tscn")
+func _on_summon_timeout():
+	var sd = sd_p.instance()
+	sd.position.x = $wali.position.x + 1000
+	sd.position.y = summon_y
+	add_child(sd)
+	var sc = sd_c.instance()
+	sc.position.x = $wali.position.x + 600
+	sc.position.y = summon_y_c
+	add_child(sc)
 	pass

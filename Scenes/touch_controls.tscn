@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Sprites/left.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/left_p.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/right.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/right_p.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/touch_controls.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/space_p.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/space.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/f.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/enter_p.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/enter.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/f_p.png" type="Texture" id=11]
+
+[node name="touch_controls" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="left" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0, 456 )
+scale = Vector2( 0.493333, 0.503817 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+passby_press = true
+
+[node name="right" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 976, 456 )
+scale = Vector2( 0.506667, 0.503817 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+passby_press = true
+
+[node name="space" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 248, 472 )
+scale = Vector2( 0.4589, 0.474187 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 6 )
+passby_press = true
+
+[node name="enter" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 1112, 0 )
+scale = Vector2( 0.240688, 0.245 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 9 )
+passby_press = true
+
+[node name="f" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 3.05176e-05, 0 )
+scale = Vector2( 0.240688, 0.245 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 11 )
+passby_press = true
+
+[connection signal="pressed" from="CanvasLayer/left" to="." method="_on_left_pressed"]
+[connection signal="released" from="CanvasLayer/left" to="." method="_on_left_released"]
+[connection signal="pressed" from="CanvasLayer/right" to="." method="_on_right_pressed"]
+[connection signal="released" from="CanvasLayer/right" to="." method="_on_right_released"]
+[connection signal="pressed" from="CanvasLayer/space" to="." method="_on_space_pressed"]
+[connection signal="released" from="CanvasLayer/space" to="." method="_on_space_released"]
+[connection signal="pressed" from="CanvasLayer/enter" to="." method="_on_enter_pressed"]
+[connection signal="released" from="CanvasLayer/enter" to="." method="_on_enter_released"]
+[connection signal="pressed" from="CanvasLayer/f" to="." method="_on_f_pressed"]
+[connection signal="released" from="CanvasLayer/f" to="." method="_on_f_released"]

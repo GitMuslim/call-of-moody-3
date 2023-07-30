@@ -3,7 +3,7 @@
 [ext_resource path="res://Sprites/com2_3_l.jpg" type="Texture" id=1]
 [ext_resource path="res://Sprites/m2d.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/no.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/com2_5.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/com2_m2d.gd" type="Script" id=4]
 [ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Fonts/ARIAL.TTF" type="DynamicFontData" id=6]
 
