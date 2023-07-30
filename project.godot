@@ -21,6 +21,10 @@ config/windows_native_icon="res://icon.ico"
 Globals="*res://Scenes/globals.gd"
 TouchControls="*res://Scenes/touch_controls.tscn"
 
+[debug]
+
+settings/fps/force_fps=60
+
 [display]
 
 window/size/width=1280

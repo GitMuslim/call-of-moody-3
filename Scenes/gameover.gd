@@ -6,4 +6,4 @@ func _ready():
 
 func _on_repeat_pressed():
 	get_tree().change_scene("res://Scenes/1.tscn")
-	pass # Replace with function body.
+	pass
